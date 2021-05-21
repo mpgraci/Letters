@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Letters</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script>
+            function allowDrop(ev) {
+              ev.preventDefault();
+            }
+
+            function drag(ev) {
+              ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+              ev.preventDefault();
+              var data = ev.dataTransfer.getData("text");
+              ev.target.appendChild(document.getElementById(data));
+            }
+        </script>
+    </head>
+    <body class="blue-grid">
+        <div id="container">
+            <!--Timer-->
+            <div id="timer-wrapper" class="border">
+
+                <div id="timer">
+                    00:30
+                </div>
+            <br>
+                <div id = "timerSet-group">
+                    <input type="number" value="30" id="timer-duration"step="15">
+                    <button id="timerSet-btn">&#10004;</button>
+                    <button id="resetTime-btn">&#8634;</button>
+                </div>
+                <div>
+                    <button id="startTime-btn">&#9658;</button>
+                </div>
+            </div>
+            <!--Main Display-->
+            <div id="center-box">
+                <div id="display-container" class="border">
+                    <div class="table-container">
+                        <table id="letters-table">
+                            <tr id="lettersTbl-row">
+                                <td class="empty"><div id="0" class="fill" draggable="true">A</div></td>
+                                <td class="empty"><div id="1" class="fill" draggable="true">B</div></td>
+                                <td class="empty"><div id="2" class="fill" draggable="true">C</div></td>
+                                <td class="empty"><div id="3" class="fill" draggable="true">D</div></td>
+                                <td class="empty"><div id="4" class="fill" draggable="true">E</div></td>
+                                <td class="empty"><div id="5" class="fill" draggable="true">F</div></td>
+                                <td class="empty"><div id="6" class="fill" draggable="true">G</div></td>
+                                <td class="empty"><div id="7" class="fill" draggable="true">H</div></td>
+                                <td class="empty"><div id="8" class="fill" draggable="true">I</div></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="table-container">
+                        <table id="word-table">
+                            <tr id="wordTbl-row">
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                                <td class="empty"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--Input-->
+                <div id="input-container" class="border">
+                    <div>
+                        <button id="cons-btn">Consonant</button>
+                        <button id="vowel-btn">Vowel</button>
+                    </div>
+                    <div id="button-container">
+                        <button id="reset-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <!--Rules-->
+            <div id="rules-container" class="border">
+                <div id="rules-content">
+                <b>The Goal:</b> <br> <br>
+                Using the 9 given letters, spell the longest word possible<br>
+            <br>
+                <b>How to Play:</b>
+                <ul>
+                    <li>Choose either a vowel or consonant to add to the board. Do this until there are 9 letters.</li>
+                    <li>You must have at least 3 vowels and at least 4 consonants</li>
+                    <li>Drag the letters to the bottom row to form a word</li>
+                    <li>Words must be found in the Oxford Dictionary of English, as well as accepted forms of them that may not be explicitly listed (plurals, inflectiosn of verbs, superlatvies of adjectives, etc.</li>
+                    <li>No proper nouns allowed</li>
+                    <li>No hyphenated words allowed</li>
+                </ul>
+                <br>
+                <b>Scoring:</b>
+                <ul>
+                    <li>Only the player with the longest word scores</li>
+                    <li>If tied, each tied player scores</li>
+                    <li>1 point for each letter</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div id="button-div" class="bottom">
+            <div>
+                <button id="timer-btn">Timer</button>
+                <button id="Rules-btn">Rules</button>
+            </div>
+        </div>
+        <script src="js/index.js"></script>
+        <script src="js/dragndrop.js"></script>
+    </body>
+</html>
